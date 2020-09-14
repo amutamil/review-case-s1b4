@@ -45,9 +45,9 @@ void trim(string& s1)
 	size_t start = s1.find_first_not_of(WHITESPACE);
 	if (start != string::npos)
 		s1=s1.substr(start);
-	size_t end = s.find_last_not_of(WHITESPACE);
+	size_t end = s1.find_last_not_of(WHITESPACE);
 	if(end != string::npos) 
-		s=s.substr(0, end + 1);
+		s1=s1.substr(0, end + 1);
 }
  
   void pushIntoMap(string& s1, unordered_map<string, int>& m)
