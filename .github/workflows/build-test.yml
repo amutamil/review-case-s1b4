@@ -29,5 +29,8 @@ jobs:
     - name: run
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
     
-    - name: coverage report
-      run: gcov -r *.cpp
+    - name: receiver coverage report
+      run: gcov -r receiver/receiver.cpp
+    
+    - name: sender coverage report
+      run: gcov -r sender/sendermain.cpp
