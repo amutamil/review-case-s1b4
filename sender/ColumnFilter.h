@@ -17,9 +17,12 @@ namespace ColumnFilter
 
 		vector<string> getColumn()
 		{
-			for (unsigned int i_row = 0; i_row < csvFileArray.size(); i_row++)
+			int zeroBasedColumnNumber = col_number-1;
+			for(unsigned int i_row = 0; i_row < csvFileArray.size(); i_row++)
 			{
-				ColumnReview.push_back(csvFileArray[i_row][col_number-1]);
+				vector<string> sub(csvFileArray[i_row]);
+				sub.push_back("");
+				ColumnReview.push_back(sub.at(zeroBasedColumnNumber));
 			}
 			return ColumnReview;
 		}
