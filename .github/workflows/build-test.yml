@@ -24,7 +24,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o testReceiverExe receiver-test/receiverTest.cpp
       
     - name: run Receiver test
-      run: testReceiverExe
+      run: ./testReceiverExe
       
     - name: receiver coverage report
       run: gcov -r receiver.cpp
