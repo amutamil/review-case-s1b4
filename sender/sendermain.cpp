@@ -12,7 +12,7 @@ void MessageWhenFileNameNotEntered(int argc)
 {
 	if (FileArray::checkIfArgumentCountLessThanOne(argc))
 	{
-		cout << "File name not passsed" << endl;
+		cout << "File name not passed" << endl;
 		exit(0);
 	}
 }
