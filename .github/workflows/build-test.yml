@@ -30,7 +30,7 @@ jobs:
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
     
     - name: receiver coverage report
-      run: gcov -r receiver/receiver.cpp
+      run: gcov -r receiver.cpp
     
     - name: sender coverage report
-      run: gcov -r sender/sendermain.cpp
+      run: gcov -r sendermain.cpp
