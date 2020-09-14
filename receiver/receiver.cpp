@@ -1,4 +1,5 @@
 #include "functions.h"
+
 using namespace functions;
 
 
@@ -24,5 +25,6 @@ int main()
      //pushIntoMap(s1,m);
   }
   printmap(m);
+  createCSV(m);
   return 0;
 }
