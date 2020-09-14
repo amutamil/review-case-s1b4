@@ -18,25 +18,25 @@ namespace functions
   string arr[3]={"filename not passed as argument","file cannot be opened","file is empty"};
   for(unsigned int i=0;i<3;i++)
   {
-    if(s==arr[i])
-      return true;
+    	if(s==arr[i])
+      		return true;
   }
   return false;
   }
   
   void removeNums(string& s1)
   {
-    s1.erase(remove_if(s1.begin(), s1.end(), ::iswdigit), s1.end());
+    	s1.erase(remove_if(s1.begin(), s1.end(), ::iswdigit), s1.end());
   }
     
   void removeSpecialChar(string& s1)
   {
-     s1.erase(remove_if(s1.begin(), s1.end(), ::iswpunct), s1.end());
+    	s1.erase(remove_if(s1.begin(), s1.end(), ::iswpunct), s1.end());
   }
   
   void ToLowerChar(string& s1)
   {
-    transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+    	transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
   }
  
 void trim(string& s1)
@@ -81,26 +81,25 @@ void trim(string& s1)
   
   void printmap(unordered_map<string, int>& m)
   {
-   unordered_map<string, int>::iterator itr;
-   for (auto itr = m.begin(); itr != m.end(); ++itr) 
-      {
-        cout << itr->first
-            << '\t' << itr->second << '\n';
-      }
+   	unordered_map<string, int>::iterator itr;
+   	for (auto itr = m.begin(); itr != m.end(); ++itr) 
+      	{
+        	cout << itr->first << '\t' << itr->second << '\n';
+     	}
    }
  
  
- createCSV(unordered_map<string,int>& m)
+ void createCSV(unordered_map<string,int>& m)
  {
-    ofstream  file("output.csv");
-    file.open("output.csv", ios::out | ios::app);
+ 	ofstream  file("output.csv");
+    	file.open("output.csv", ios::out | ios::app);
 
-    unordered_map<string, int> ::iterator it;
+    	unordered_map<string, int> ::iterator it;
 
-    for (it = m.begin(); it != m.end(); ++it) 
-    {
-        file << it->first << "," << it->second << "\n";
-    }
+    	for (it = m.begin(); it != m.end(); ++it) 
+    	{
+        	file << it->first << "," << it->second << "\n";
+    	}
   }
   
 }
