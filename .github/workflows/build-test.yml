@@ -14,17 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: build
+    - name: build sender
       run: g++ -Wall -Wextra -Werror --coverage -o senderExe sender/*.cpp
       
     - name: build Receiver
       run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
+    
+    - name: build Receiver-Test
+      run: g++ -Wall -Wextra -Werror --coverage -o testReceiverExe receiver-test/receiverTest.cpp
       
-    - name: run
-      run: ./senderExe | ./receiverExe
+    - name: run Receiver test
+      run: testReceiverExe
       
     - name: receiver coverage report
       run: gcov -r receiver.cpp
     
     - name: sender coverage report
       run: gcov -r Sendermain.cpp
+    
+    - name: test receiver coverage report
+      run: gcov -r receiverTest.cpp
