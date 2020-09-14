@@ -24,7 +24,6 @@ int main()
      removeStopWords(s1,m);
      //pushIntoMap(s1,m);
   }
-  printmap(m);
-  createCSV(m);
+  printMapAndCreateCSV(m);
   return 0;
 }
