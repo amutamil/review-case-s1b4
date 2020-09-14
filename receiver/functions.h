@@ -84,7 +84,7 @@ void trim(string& s1)
    	unordered_map<string, int>::iterator itr;
    	for (auto itr = m.begin(); itr != m.end(); ++itr) 
       	{
-        	cout << itr->first << '\t\t\t\t\t\t' << itr->second << '\n';
+        	cout << itr->first << "\t\t\t" << itr->second << '\n';
      	}
    }
  
