@@ -15,7 +15,7 @@ namespace functions
 { unordered_map<string, int> m;
   bool checkExceptions(string s)
   {
-  string arr[3]={"filename not passed as argument","file cannot be opened","file is empty"};
+  string arr[3]={"File name not passed","File cannot be opened","File is Empty"};
   for(unsigned int i=0;i<3;i++)
   {
     	if(s==arr[i])
