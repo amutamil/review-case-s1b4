@@ -10,3 +10,17 @@ TEST_CASE("remove number from given string") {
     REQUIRE( str  == "testing number removal");
     REQUIRE( str2 == "testing another number removal");
 }
+
+TEST_CASE("remove special characters from given string") {
+    string str="test[ing s^peci]al charac(ter removal 1",str2="te%sting spec#ial chara!cter re[moval 2";
+    functions::removeSpecialChar(str);functions::removeSpecialChar(str2);
+    REQUIRE( str  == "testing special character removal 1");
+    REQUIRE( str2 == "testing special character removal 2");
+}
+
+TEST_CASE("converting from upper case to lower") {
+    string str="CoNvErTiNg To LoWeR CaSE",str2="ChEcK aNoTHeR StrING";
+    functions::ToLowerChar(str);functions::ToLowerChar(str2);
+    REQUIRE( str  == "converting to lower case");
+    REQUIRE( str2 == "check another string");
+}
