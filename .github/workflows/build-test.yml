@@ -27,7 +27,7 @@ jobs:
       run: cppcheck --suppress=missingIncludeSystem --check-config --force --enable=all --error-exitcode=1 .
       
     - name: run
-      run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
+      run: ./senderExe | ./receiverExe
     
     - name: receiver coverage report
       run: gcov -r receiver.cpp
