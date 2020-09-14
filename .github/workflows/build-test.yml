@@ -20,11 +20,14 @@ jobs:
     - name: build
       run: g++ -Wall -Wextra -Werror --coverage -o senderExe sender/*.cpp
       
+    - name: build Receiver
+      run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp  
+      
     - name: static analysis
       run: cppcheck --check-config --force --enable=all --error-exitcode=1 .
       
     - name: run
-      run: ./senderExe sample-review/review-report.csv 2
+      run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
     
     - name: coverage report
       run: gcov -r *.cpp
