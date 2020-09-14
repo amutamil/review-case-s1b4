@@ -1,0 +1,8 @@
+senderExe
+receiverExe
+Sendermain.cpp.gcov
+ColumnFilter.h.gcov
+fileArray.h.gcov
+receiver.cpp.gcov
+stopwords.h.gcov
+functions.h.gcov
