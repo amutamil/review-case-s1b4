@@ -77,12 +77,12 @@ SCENARIO("Pushing Words into unordered map")
 			}
 		}
 		
-		WHEN("inser string into map which is already present")
+		WHEN("insert string into map which is already present in map")
 		{
 		pushIntoMap( s,  m);
 			THEN("the corresponding count of given string is increased by 1")
 			{
-				it=m.begin();++it;;
+				it=m.begin();++it;
 				REQUIRE(it->second == 2);
 			}
 		}
