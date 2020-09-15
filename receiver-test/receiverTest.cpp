@@ -36,3 +36,30 @@ TEST_CASE("checking exception") {
     REQUIRE( str  == "Check removing leading space");
     REQUIRE( str2 == "Check removing trailing space");
  }
+
+SCENARIO("Removing stop words and insert into map")
+{
+    GIVEN("string to remove stop words, and a map to insert")
+    {
+        s1="don't remove stop word when i call this function";
+        unordered_map<string, int>& m;
+        
+        WHEN("removeStopWords FUNCTION called")
+        {
+            removeStopWords(string &s1,unordered_map<string, int>& m);
+        
+            THEN("pushIntoMap FUNCTION also called within removeStopWords FUNCTION")
+            {
+                REQUIRE(m.find("don't")==m.end());
+                REQUIRE(m.find('remove')!=m.end());
+                REQUIRE(m.find('stop')!=m.end());
+                REQUIRE(m.find('word')!=m.end());
+                REQUIRE(m.find('when')==m.end());
+                REQUIRE(m.find('i')==m.end());
+                REQUIRE(m.find('call')!=m.end());
+                REQUIRE(m.find('this')==m.end());
+                REQUIRE(m.find('function')!=m.end());
+            }
+        }
+    }
+}
