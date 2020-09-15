@@ -12,10 +12,32 @@ void ColumnFilter::printColumnReview(vector<string> ColumnReview)
 		string_itr++;
 	}
 }
-bool ColumnFilter::IsColumnNumberWithinLimit(vector <vector<string>> csvFileArray,int colNum)
+bool ColumnFilter::IsStringIsValidForStoi(string str)
+{
+	try
+	{
+		stoi(str);
+	}
+	catch (...)
+	{
+		return false;
+	}
+	return true;
+}
+bool ColumnFilter::IsColumnNumberWithinLimit(vector <vector<string>> csvFileArray, int colNum)
 {
 	
-	return(colNum>0&&colNum<=(int)csvFileArray[0].size());
+		return(colNum > 0 && colNum <= (int)csvFileArray[0].size());
+}
+bool ColumnFilter::IsColumnNumberCorrect(vector <vector<string>> csvFileArray,string colNum)
+{
+	
+	if (IsStringIsValidForStoi(colNum))
+	{
+		
+		return(IsColumnNumberWithinLimit(csvFileArray,stoi(colNum)));
+	}
+	return false;
 }
 
 
