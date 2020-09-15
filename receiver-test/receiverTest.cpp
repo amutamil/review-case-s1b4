@@ -82,7 +82,7 @@ SCENARIO("Pushing Words into unordered map")
 		pushIntoMap( s,  m);
 			THEN("the corresponding count of given string is increased by 1")
 			{
-				it=m.begin();it+=1;
+				it=m.begin();++it;;
 				REQUIRE(it->second == 2);
 			}
 		}
