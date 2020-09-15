@@ -66,13 +66,7 @@ SCENARIO("Removing stop words and insert non stop-words into map")
 
 TEST_CASE("CSV file creation and values inserted into that file from given map")
 {
-    unordered_map<string, int> m = {
-             {"abc", 100},
-             {"def", 200},
-             {"ghi", 300},
-             {"jkl", 400},
-             {"mno", 500},
-    };
+    unordered_map<string, int> m = { {"abc", 100} };
     printMapAndCreateCSV(m);
     ifstream file("./output.csv", ios::in);
 	REQUIRE(!file.fail() == true);
