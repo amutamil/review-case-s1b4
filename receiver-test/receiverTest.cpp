@@ -61,17 +61,40 @@ SCENARIO("Removing stop words and insert non stop-words into map")
         }
     }
 }
-TEST_CASE("Pushing Words into unordered map")
+SCENARIO("Pushing Words into unordered map")
 {
-	unordered_map<string, int> m = { {"abc", 100} };
-	
+	GIVEN("string and unordered_map")
+	{
+	unordered_map<string, int> m ;
+	unordered_map<string, int>::iterator it;
+	string s="testing";
+		WHEN("insert string into map for first time")
+		{
+		pushIntoMap( s,  m);
+			THEN("the given string is inserted into map")
+			{
+				REQUIRE(m.find("testing") != m.end());
+			}
+		}
+		
+		WHEN("inser string into map which is already present")
+		{
+		pushIntoMap( s,  m);
+			THEN("the corresponding count of given string is increased by 1")
+			{
+				it=m.begin();it+=1;
+				REQUIRE(it->second == 2);
+			}
+		}
+		
+	}
+
 }
 TEST_CASE("CSV file creation and values inserted into that file from given unordered map")
 {
     unordered_map<string, int> m = { {"abc", 100} };
     printMapAndCreateCSV(m);
     ifstream file("./output.csv", ios::in);
-	REQUIRE(!file.fail() == true);
     string str;
     getline(file,str);
     REQUIRE(str == "abc,100");
