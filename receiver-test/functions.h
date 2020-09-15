@@ -81,15 +81,14 @@ void trim(string& s1)
   
   void printMapAndCreateCSV(unordered_map<string, int>& m)
   {	
-	ofstream  file("output.csv");
-    	file.open("output.csv", ios::out | ios::app);
-	  
-   	unordered_map<string, int>::iterator itr;
-   	for (auto itr = m.begin(); itr != m.end(); ++itr) 
-      	{
+	ofstream  file;
+    	file.open("output.csv", ios::out);
+    	unordered_map<string, int>::iterator itr;
+    	for (auto itr = m.begin(); itr != m.end(); ++itr)
+    	{
         	cout << itr->first << "\t\t\t" << itr->second << '\n';
-		file << itr->first << "," << itr->second << "\n";
-     	}
-   }
+        	file << itr->first << "," << itr->second << "\n";
+    	}
+  }
  
 }
