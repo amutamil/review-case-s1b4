@@ -79,7 +79,8 @@ SCENARIO("Pushing Words into unordered map")
 		
 		WHEN("insert string into map which is already present in map")
 		{
-		pushIntoMap( s,  m);
+		pushIntoMap( s,  m);pushIntoMap( s,  m);
+
 			THEN("the corresponding count of given string is increased by 1")
 			{
 				it=m.find("testing");int val =2;
