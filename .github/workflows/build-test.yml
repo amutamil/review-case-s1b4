@@ -27,7 +27,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
     
     - name: run pipeline
-      run: ./senderExe sample-review/review.csv 2 | ./receiverExe
+      run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
       
     - name: build sender-Test
       run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/*.cpp
