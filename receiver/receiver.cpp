@@ -9,12 +9,6 @@ int main()
 
   getline(cin,s1);
   
-  if(checkExceptions(s1))
-  {
-    cout<<s1;
-    return 0;
-  }
-  
   while(getline(cin,s1))
   {
      removeNums(s1);
