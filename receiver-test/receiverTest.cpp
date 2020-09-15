@@ -41,7 +41,7 @@ SCENARIO("Removing stop words and insert into map")
 {
     GIVEN("string to remove stop words, and a map to insert")
     {
-        s1="don't remove stop word when i call this function";
+        string s1="don't remove stop word when i call this function";
         unordered_map<string, int>& m;
         
         WHEN("removeStopWords FUNCTION called")
