@@ -23,14 +23,14 @@ TEST_CASE("when ifstream object and correct file name is given then return false
 			"File can be Opened")
 {
 	ifstream fin;
-	REQUIRE(FileArray::IsFileNotOpen(fin, "harishtext.csv")==false);
+	REQUIRE(FileArray::IsFileNotOpen(fin, "sample-review/review-report.csv")==false);
 
 }
 TEST_CASE("when ifstream object and incorrect file name is given then return true"
 			"stating File Cant be opened")
 {
 	ifstream fin;
-	REQUIRE(FileArray::IsFileNotOpen(fin, "harish.csv") == true);
+	REQUIRE(FileArray::IsFileNotOpen(fin, "some.csv") == true);
 
 }
 TEST_CASE("When string with comma is given then report false stating line contains comma")
