@@ -33,7 +33,7 @@ jobs:
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
       
     - name: build sender-Test
-      run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/sender-test.cpp
+      run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/*.cpp
       
     - name: run sender-test
       run: ./testsenderExe
