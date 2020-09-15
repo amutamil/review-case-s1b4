@@ -26,9 +26,6 @@ jobs:
     - name: build Receiver
       run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
     
-    - name: static analysis
-      run: cppcheck --suppress=missingIncludeSystem --check-config --force --enable=all --error-exitcode=1 .
-    
     - name: run pipeline
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
       
@@ -43,12 +40,6 @@ jobs:
       
     - name: run Receiver-test
       run: ./testReceiverExe
-      
-    - name: receiver coverage report
-      run: gcov -r receiver.cpp
-    
-    - name: sender coverage report
-      run: gcov -r Sendermain.cpp ColumnFilter.cpp fileArray.cpp
     
     - name: Receiver-Test coverage report
       run: gcov -r receiverTest.cpp
