@@ -31,6 +31,12 @@ jobs:
     
     - name: run pipeline
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
+      
+    - name: build sender-Test
+      run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/sender-test.cpp
+      
+    - name: run sender-test
+      run: ./testsenderExe
     
     - name: build Receiver-Test
       run: g++ -Wall -Wextra -Werror --coverage -o testReceiverExe receiver-test/receiverTest.cpp
@@ -42,7 +48,10 @@ jobs:
       run: gcov -r receiver.cpp
     
     - name: sender coverage report
-      run: gcov -r Sendermain.cpp
+      run: gcov -r Sendermain.cpp ColumnFilter.cpp fileArray.cpp
     
     - name: Receiver-Test coverage report
       run: gcov -r receiverTest.cpp
+      
+    - name: sender-Test coverage report
+      run: gcov -r sender-test.cpp ColumnFilter.cpp fileArray.cpp
