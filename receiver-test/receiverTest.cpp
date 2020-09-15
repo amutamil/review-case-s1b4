@@ -75,7 +75,7 @@ TEST_CASE("CSV file creation and values inserted into that file from given map")
     };
     printMapAndCreateCSV(m);
     ifstream file("./output.csv", ios::in);
-	REQUIRE(!fin.fail() == true);
+	REQUIRE(!file.fail() == true);
     string str;
     getline(file,str);
     REQUIRE(str == "abc,100");
