@@ -24,3 +24,15 @@ TEST_CASE("converting from upper case to lower") {
     REQUIRE( str  == "converting to lower case");
     REQUIRE( str2 == "check another string");
 }
+
+TEST_CASE("checking exception") {
+    REQUIRE(functions::checkExceptions("File name not passed" )  == true);
+    REQUIRE(functions::checkExceptions( "No exception" ) == false);
+}
+ TEST CASE("Removing leading and trailing spaces in the string")
+ {
+     string str="   Check removing leading space",str2="Check removing trailing space   ";
+     functions::trim(str);functions::trim(str2);
+    REQUIRE( str  == "Check removing leading space");
+    REQUIRE( str2 == "Check removing trailing space");
+ }
