@@ -37,9 +37,9 @@ TEST_CASE("checking exception") {
     REQUIRE( str2 == "Check removing trailing space");
  }
 
-SCENARIO("Removing stop words and insert into map")
+SCENARIO("Removing stop words and insert non stop-words into map")
 {
-    GIVEN("string to remove stop words, and a map to insert")
+    GIVEN("string which has stop-words and non stop-words,  a map to insert")
     {
         string s1="don't remove stop word when i call this function";
         unordered_map<string, int> m;
@@ -62,4 +62,21 @@ SCENARIO("Removing stop words and insert into map")
             }
         }
     }
+}
+
+TEST_CASE("CSV file creation and values inserted into that file from given map")
+{
+    unordered_map<string, int> m = {
+             {"abc", 100},
+             {"def", 200},
+             {"ghi", 300},
+             {"jkl", 400},
+             {"mno", 500},
+    };
+    printMapAndCreateCSV(m);
+    ifstream file;
+	file.open("./output.csv", ios::in);
+    string str;
+    getline(file,str);
+    REQUIRE(str == "abc,100");
 }
