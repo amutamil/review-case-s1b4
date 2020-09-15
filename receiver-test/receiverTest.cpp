@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN  
 #include "catch.hpp"
-#include "functions.h"
+#include "./receiver/functions.h"
 
 using namespace functions;
 
