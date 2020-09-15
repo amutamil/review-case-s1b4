@@ -16,21 +16,33 @@ jobs:
     
     - name: install cppcheck static analysis
       run: sudo apt-get update && sudo apt-get install -y cppcheck
-      
-    - name: build
+    
+    - name: static analysis
+      run: cppcheck --suppress=missingIncludeSystem --check-config --force --enable=all --error-exitcode=1 .
+    
+    - name: build sender
       run: g++ -Wall -Wextra -Werror --coverage -o senderExe sender/*.cpp
       
     - name: build Receiver
-      run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp  
-      
+      run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
+    
     - name: static analysis
       run: cppcheck --suppress=missingIncludeSystem --check-config --force --enable=all --error-exitcode=1 .
-      
-    - name: run
+    
+    - name: run pipeline
       run: ./senderExe sample-review/review-report.csv 2 | ./receiverExe
     
+    - name: build Receiver-Test
+      run: g++ -Wall -Wextra -Werror --coverage -o testReceiverExe receiver-test/receiverTest.cpp
+      
+    - name: run Receiver-test
+      run: ./testReceiverExe
+      
     - name: receiver coverage report
       run: gcov -r receiver.cpp
     
     - name: sender coverage report
       run: gcov -r Sendermain.cpp
+    
+    - name: Receiver-Test coverage report
+      run: gcov -r receiverTest.cpp
