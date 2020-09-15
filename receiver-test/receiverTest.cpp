@@ -61,8 +61,12 @@ SCENARIO("Removing stop words and insert non stop-words into map")
         }
     }
 }
-
-TEST_CASE("CSV file creation and values inserted into that file from given map")
+TEST_CASE("Pushing Words into unordered map")
+{
+	unordered_map<string, int> m = { {"abc", 100} };
+	
+}
+TEST_CASE("CSV file creation and values inserted into that file from given unordered map")
 {
     unordered_map<string, int> m = { {"abc", 100} };
     printMapAndCreateCSV(m);
