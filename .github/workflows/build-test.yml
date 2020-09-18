@@ -27,7 +27,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
     
     - name: run pipeline
-      run: ./senderExe | ./receiverExe
+      run: ./senderExe
       
     - name: build sender-Test
       run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/*.cpp
