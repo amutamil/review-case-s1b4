@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: install cppcheck static analysis
-      run: sudo apt-get update && sudo apt-get install -y cppcheck
+      run: sudo apt-get update && sudo apt-get install -y cppcheck 
     
     - name: static analysis
       run: cppcheck --suppress=missingIncludeSystem --check-config --force --enable=all --error-exitcode=1 .
@@ -27,7 +27,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o receiverExe receiver/receiver.cpp
     
     - name: run pipeline
-      run: ./senderExe sample-review/sample-review-data.csv
+      run: ./senderExe sample-review/sample-review-data.csv | ./receiverExe
       
     - name: build sender-Test
       run: g++ -Wall -Wextra -Werror --coverage -o testsenderExe sender-test/*.cpp
