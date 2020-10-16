@@ -1,4 +1,4 @@
-/*comment to check*/
+
 #include "functions.h"
 
 using namespace functions;
